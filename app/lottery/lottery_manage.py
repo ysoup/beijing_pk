@@ -33,11 +33,21 @@ def crawler_lottery_data():
             pk_data = json.loads(pk_data.text)
             if pk_data.__contains__("current"):
                 current_data = pk_data["current"]
+                award = current_data["award"].split(",")
                 rows = BeiJingPk.query.filter_by(period=current_data["period"]).first()
                 if rows is None:
                     info = BeiJingPk(
                         period=current_data["period"],
-                        award=current_data["award"],
+                        award_1=award[0],
+                        award_2=award[1],
+                        award_3=award[2],
+                        award_4=award[3],
+                        award_5=award[4],
+                        award_6=award[5],
+                        award_7=award[6],
+                        award_8=award[7],
+                        award_9=award[8],
+                        award_10=award[9],
                         award_time=current_data["date"] + " " + current_data["time"]
                     )
                     db.session.add(info)

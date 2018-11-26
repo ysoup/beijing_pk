@@ -15,7 +15,7 @@ class config:
 
 class DevelopmentConfig(config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = ''
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:soup@58.87.70.179:3306/lottery'
 
 
 class TestingConfig(config):

@@ -19,20 +19,113 @@
                         </ul>
                         <!-- Single button -->
                         <div class="row" style="padding-top: 10px">
-                            <div class="col-md-1">
-                                <div class="col-md-4">
-                                                    <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="yyyy-mm-dd">
-                                                        <input type="text" class="form-control" name="from">
-                                                        <span class="input-group-addon"> to </span>
-                                                        <input type="text" class="form-control" name="to"> </div>
-                                                    <!-- /input-group -->
-                                                    <span class="help-block"> Select date range </span>
+                            <div class="col-md-4">
+                                <form class="form-horizontal" role="form" name="test">
+{#                                    <div class="form-title">搜索</div>#}
+                                    <div class="form-body">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">时间搜索</label>
+                                            <div class="col-md-4">
+                                                <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="yyyy-mm-dd">
+                                                    <input type="text" class="form-control" name="from">
+                                                    <span class="input-group-addon"> 至 </span>
+                                                    <input type="text" class="form-control" name="to"> </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">筛选号</label>
+                                            <div class="col-md-8">
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="1">1
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="2">2
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="3">3
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="4">4
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="5">5
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="6">6
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="7">7
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="8">8
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="9">9
+                                                </label>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox"  name="check_number" value="10">10
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label class="control-label col-md-2">道  序</label>
+                                                <div class="col-md-10">
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="1">1
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="2">2
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="3">3
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="4">4
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="5">5
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="6">6
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="7">7
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="8">8
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="9">9
+                                                    </label>
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_index" value="10">10
+                                                    </label>
+
+                                                    <label class="checkbox-inline">
+                                                        <input type="checkbox"  name="check_all" value="option3">全选
+                                                    </label>
+
                                                 </div>
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-2">搜索最高次</label>
+                                        <div class="col-md-2">
+                                            <input type="number" style="margin-left: 10px" ></input>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn green" style="margin-left: 10px" onclick="search()">搜索</button>
+                                        </div>
+                                    </div>
+{#                                    <div class="modal-footer">#}
+{#                                        <button type="button" class="btn dark btn-outline" data-dismiss="modal">关闭</button>#}
+{#                                        <button type="button" class="btn green" onclick="all_article_upload()">保存</button>#}
+{#                                    </div>#}
+                                </form>
                             </div>
 {#                            <div class="col-md-4">#}
-{#                                <button class="btn blue btn-circle pull-right" data-toggle="modal" data-target="#myModal">#}
-{#								批量导入#}
-{#							</button>#}
+{#                                <button onclick="delete_choice_flash()" class="btn blue btn-circle pull-right">批量删除</button>#}
 {#                            </div>#}
                         </div>
                         <div class="row">
@@ -43,7 +136,16 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>期数</th>
-                                            <th>开奖号码</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th>开奖</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
                                             <th>开奖时间</th>
                                             <th>创建日期</th>
 {#                                            <th>操作</th>#}
@@ -54,7 +156,16 @@
                                             <tr id="tr-{{ row['id'] }}">
                                                 <td>{{ row["id"] }}</td>
                                                 <td>{{ row["period"]}}</td>
-                                                <td>{{ row["award"] }}</td>
+                                                <td>{{ row["award_1"] }} </td>
+                                                <td>{{ row["award_2"] }} </td>
+                                                <td>{{ row["award_3"] }} </td>
+                                                <td>{{ row["award_4"] }} </td>
+                                                <td>{{ row["award_5"] }} </td>
+                                                <td>{{ row["award_6"] }} </td>
+                                                <td>{{ row["award_7"] }} </td>
+                                                <td>{{ row["award_8"] }} </td>
+                                                <td>{{ row["award_9"] }} </td>
+                                                <td>{{ row["award_10"] }} </td>
                                                 <td>{{ row["award_time"] }}</td>
                                                 <td>{{ row["create_time"] }}</td>
 {#                                                <td>#}
@@ -97,6 +208,18 @@
 
         function modify_monitor_data(id) {
             window.location.href = "/modify_account_info?id=" + id;
+        }
+        function search() {
+            var groupCheckbox=$("input[name='check']");
+            for(i=0;i<groupCheckbox.length;i++){
+                if(groupCheckbox[i].checked){
+                    var val =groupCheckbox[i].value;
+                    alert(val );
+                }
+            }
+            var category_type = $("#category_type").val();
+            window.location.href = "/article_list?category_type="+ category_type;
+
         }
     </script>
 {% endblock %}
